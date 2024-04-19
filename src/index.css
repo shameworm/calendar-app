@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50;
+}
+
+.hamburger {
+  @apply cursor-pointer w-6 h-6 transition-all relative space-y-2;
+}
