@@ -7,5 +7,5 @@ body {
 }
 
 .hamburger {
-  @apply cursor-pointer w-6 h-6 transition-all relative space-y-2;
+  @apply cursor-pointer transition-all relative space-y-2;
 }
