@@ -1,15 +1,16 @@
-import Header from "./components/Header/Header";
+import { useSelector } from "react-redux";
+
+import Layout from "./components/Layout";
 import Sidebar from "./components/Sidebar/Sidebar";
 
+import { RootState } from "./store";
+
 const App: React.FC = () => {
-  return (
-    <>
-      <Header />
-      <main className="h-screen flex gap-10">
-        <Sidebar />
-      </main>
-    </>
+  const sidebarIsActive = useSelector(
+    (state: RootState) => state.ui.sidebarIsActive
   );
+
+  return <Layout>{sidebarIsActive && <Sidebar />}</Layout>;
 };
 
 export default App;

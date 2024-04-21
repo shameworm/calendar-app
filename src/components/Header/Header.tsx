@@ -27,12 +27,11 @@ const Header: React.FC = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const formattedDate = `${currentDate
-    .getDate()
-    .toString()
-    .padStart(2, "0")}.${(currentDate.getMonth() + 1)
-    .toString()
-    .padStart(2, "0")}.${currentDate.getFullYear()}`;
+  const formattedDate = currentDate.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <header className="container flex items-center justify-between pb-2 m-5 border-b-2">
