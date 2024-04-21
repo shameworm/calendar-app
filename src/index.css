@@ -9,3 +9,8 @@ body {
 .hamburger {
   @apply cursor-pointer transition-all relative space-y-2;
 }
+
+.dropdown-option:hover {
+  background-color: #41b06e;
+  color: white;
+}
