@@ -3,7 +3,7 @@ import arrowImg from "../../assets/arrow.svg";
 const Dropdown: React.FC = () => {
   return (
     <div className="relative lg:max-w-sm ">
-      <select className="px-9 py-1 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-[#41B06E]">
+      <select className="pl-2 pr-7 py-1 text-sm bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-[#41B06E]">
         <option className="dropdown-option">Day</option>
         <option className="dropdown-option">Week</option>
         <option selected className="dropdown-option">

@@ -1,33 +1,16 @@
-import { useState, useEffect } from "react";
-
 import HeaderActionSection from "./HeaderSections/HeaderActionSection";
 import HeaderMainSection from "./HeaderSections/HeaderMainSection";
 import HeaderSupportSection from "./HeaderSections/HeaderSupportSection";
 
-const Header: React.FC = () => {
-  const [currentDate, setCurrentDate] = useState<Date>(new Date());
-
-  useEffect(() => {
-    const updateDate = () => {
-      setCurrentDate(new Date());
-    };
-
-    const now = new Date();
-    const tomorrow = new Date(now);
-    tomorrow.setDate(now.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0);
-    const timeUntilNextDay = tomorrow.getTime() - now.getTime();
-
-    const timeoutId = setTimeout(() => {
-      updateDate();
-      const intervalId = setInterval(updateDate, 24 * 60 * 60 * 1000);
-      return () => clearInterval(intervalId);
-    }, timeUntilNextDay);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  const formattedDate = currentDate.toLocaleDateString("en-US", {
+type headerProps = {
+  currentDate: { day: number; month: number; year: number };
+};
+const Header: React.FC<headerProps> = ({ currentDate }) => {
+  const formattedDate = new Date(
+    currentDate.year,
+    currentDate.month,
+    currentDate.day
+  ).toLocaleDateString("en-US", {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -36,7 +19,7 @@ const Header: React.FC = () => {
   return (
     <header className="container flex items-center justify-between pb-2 m-5 border-b-2">
       <div className="flex items-center justify-center gap-12">
-        <HeaderMainSection currentDate={currentDate.getDate()} />
+        <HeaderMainSection currentDate={currentDate.day} />
         <HeaderActionSection currentDate={formattedDate} />
       </div>
       <HeaderSupportSection />
