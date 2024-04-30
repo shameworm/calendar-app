@@ -2,7 +2,6 @@ type CalendarBodyProps = { daysOfMonth: number[] };
 
 const CalendarBody: React.FC<CalendarBodyProps> = ({ daysOfMonth }) => {
   const weeks = [];
-  console.log(daysOfMonth)
   for (let i = 0; i < daysOfMonth.length; i += 7) {
     weeks.push(daysOfMonth.slice(i, i + 7));
   }

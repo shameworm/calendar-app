@@ -1,17 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const getCurrentDate = () => {
+  const currentDate = new Date();
+  return {
+    day: currentDate.getDate(),
+    month: currentDate.getMonth() + 1,
+    year: currentDate.getFullYear(),
+  };
+};
+
 const calendarSlice = createSlice({
   name: "calendar",
   initialState: {
-    currentDate: {
-      todaysDate: new Date().getDate(),
-      day: 1,
-      month: new Date().getMonth() + 1,
-      year: new Date().getFullYear(),
-    },
+    currentDate: getCurrentDate(),
     calendarView: "Month",
   },
   reducers: {
+    getCurrentDate: (state) => {
+      state.currentDate = getCurrentDate();
+    },
     nextMonth: (state) => {
       state.currentDate.month += 1;
     },
