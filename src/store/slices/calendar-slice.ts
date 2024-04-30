@@ -19,23 +19,35 @@ const calendarSlice = createSlice({
     getCurrentDate: (state) => {
       state.currentDate = getCurrentDate();
     },
-    nextMonth: (state) => {
-      state.currentDate.month += 1;
+    next: (state) => {
+      switch (state.calendarView) {
+        case "Month": {
+          state.currentDate.month += 1;
+          break;
+        }
+        case "Week": {
+          state.currentDate.day += 7;
+          break;
+        }
+        case "Day": {
+          state.currentDate.day += 1;
+        }
+      }
     },
-    prevMonth: (state) => {
-      state.currentDate.month -= 1;
-    },
-    nextDay: (state) => {
-      state.currentDate.day += 1;
-    },
-    prevDay: (state) => {
-      state.currentDate.day -= 1;
-    },
-    nextWeek: (state) => {
-      state.currentDate.day += 7;
-    },
-    prevWeek: (state) => {
-      state.currentDate.day -= 7;
+    prev: (state) => {
+      switch (state.calendarView) {
+        case "Month": {
+          state.currentDate.month -= 1;
+          break;
+        }
+        case "Week": {
+          state.currentDate.day -= 7;
+          break;
+        }
+        case "Day": {
+          state.currentDate.day -= 1;
+        }
+      }
     },
   },
 });

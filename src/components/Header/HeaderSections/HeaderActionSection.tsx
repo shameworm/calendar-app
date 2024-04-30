@@ -11,11 +11,11 @@ const HeaderActionSection: React.FC<{ currentDate: string }> = ({
   const dispatch = useDispatch();
 
   const onPrevDateHandler = () => {
-    dispatch(calendarActions.prevMonth());
+    dispatch(calendarActions.prev());
   };
 
   const onNextDateHandler = () => {
-    dispatch(calendarActions.nextMonth());
+    dispatch(calendarActions.next());
   };
 
   const onGetTodaysDate = () => {

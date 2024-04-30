@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import Calendar from "../components/Calendar/Calendar";
 
 import { RootState } from "../store";
-import { getDaysOfMonth } from "../utils/dateUtils";
+import { getDays } from "../utils/dateUtils";
 
 const Layout: React.FC = () => {
   const sidebarIsActive = useSelector(
@@ -24,7 +24,7 @@ const Layout: React.FC = () => {
         {sidebarIsActive && <Sidebar />}
         <section className="mx-auto">
           <Calendar
-            daysOfMonth={getDaysOfMonth(currentDate.month, currentDate.year)}
+            days={getDays(calendarView, currentDate)}
             view={calendarView}
           />
         </section>

@@ -1,10 +1,13 @@
+import { days } from "../../models/days.model";
 import CalendarViewMonth from "./CalendarViews/CalendarViewMonth";
+import CalendarViewWeek from "./CalendarViews/CalendarViewWeek";
 
-type CalendarProps = {daysOfMonth: number[], view: string}
-const Calendar: React.FC<CalendarProps> = ({daysOfMonth, view}) => {
+type CalendarProps = { days: days[]; view: string };
+const Calendar: React.FC<CalendarProps> = ({ days, view }) => {
   return (
     <table className="w-full">
-      {view === "Month" && <CalendarViewMonth daysOfMonth={daysOfMonth}/>}
+      {view === "Month" && <CalendarViewMonth days={days} />}
+      {view === "Week" && <CalendarViewWeek days={days} />}
     </table>
   );
 };

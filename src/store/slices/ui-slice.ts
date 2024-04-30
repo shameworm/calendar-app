@@ -2,11 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
   name: "ui",
-  initialState: { sidebarIsActive: true },
+  initialState: { sidebarIsActive: true, dropdownIsActive: false },
   reducers: {
-    toogle(state) {
+    toogleSidebar(state) {
       state.sidebarIsActive = !state.sidebarIsActive;
     },
+    toogleDropdown(state) {
+      state.dropdownIsActive = !state.dropdownIsActive
+    }
   },
 });
 

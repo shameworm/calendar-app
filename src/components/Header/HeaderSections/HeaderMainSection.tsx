@@ -10,7 +10,7 @@ const HeaderMainSection: React.FC<{ currentDate: number }> = ({
   const dispatch = useDispatch();
 
   const toogleSidebar = () => {
-    dispatch(uiActions.toogle());
+    dispatch(uiActions.toogleSidebar());
   };
 
   return (

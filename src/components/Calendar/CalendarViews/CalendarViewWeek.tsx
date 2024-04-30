@@ -3,7 +3,7 @@ import CalendarBody from "../../UI/CalendarUI/CalendarBody";
 import CalendarDays from "../../UI/CalendarUI/CalendarDays";
 
 type CalendarViewMonthProps = { days: days[] };
-const CalendarViewMonth: React.FC<CalendarViewMonthProps> = ({ days }) => {
+const CalendarViewWeek: React.FC<CalendarViewMonthProps> = ({ days }) => {
   return (
     <>
       <thead>
@@ -16,4 +16,4 @@ const CalendarViewMonth: React.FC<CalendarViewMonthProps> = ({ days }) => {
   );
 };
 
-export default CalendarViewMonth;
+export default CalendarViewWeek;

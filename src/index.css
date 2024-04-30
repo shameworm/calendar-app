@@ -15,10 +15,10 @@ body {
   color: white;
 }
 
-.table-head-month {
+.table-head {
   @apply p-2 border-2 h-10  w-32 text-sm;
 }
 
-.table-head-moth span {
+.table-head span {
   @apply block;
 }
