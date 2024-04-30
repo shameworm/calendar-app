@@ -4,8 +4,9 @@ const calendarSlice = createSlice({
   name: "calendar",
   initialState: {
     currentDate: {
-      day: new Date().getDate(),
-      month: new Date().getMonth(),
+      todaysDate: new Date().getDate(),
+      day: 1,
+      month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
     },
     calendarView: "Month",

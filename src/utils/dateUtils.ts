@@ -1,14 +1,16 @@
 export function getDaysOfMonth(month: number, year: number) {
-  const firstDayOfMonth = new Date(year, month, 1).getDay(); // Get the day of the week for the first day of the month
-  const days = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // Adjust if the first day is Sunday
-   
-  const prevMonthDaysNumberOfDay = new Date(year, month - 1, 0).getDate();
-  const currMonthDaysNumberOfDay = new Date(year, month, 0).getDate();
+  const firstDayOfMonth = new Date(year, month - 1, 1).getDay(); 
+  const daysInMonth = new Date(year, month, 0).getDate();
 
+  const prevMonth = month === 1 ? 12 : month - 1;
+  const prevMonthDays = new Date(year, prevMonth, 0).getDate();
+  const days = (firstDayOfMonth === 0 ? 7 : firstDayOfMonth) ; 
+   
   const daysOfMonth: number[] = [];
-  for (let i = 0; i < days; i++)
-    daysOfMonth.unshift(prevMonthDaysNumberOfDay - i);
-  for (let i = 1; i <= currMonthDaysNumberOfDay; i++) daysOfMonth.push(i);
+  for (let i = days; i > 0; i--)
+    daysOfMonth.push(prevMonthDays - i + 1);
+  for (let i = 1; i <= daysInMonth; i++) 
+    daysOfMonth.push(i);
 
   return daysOfMonth;
 }

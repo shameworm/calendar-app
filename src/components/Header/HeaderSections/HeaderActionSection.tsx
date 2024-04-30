@@ -1,9 +1,9 @@
 import Button from "../../UI/Button";
 
-import arrowImg from "../../../assets/arrow.svg"
+import arrowImg from "../../../assets/arrow.svg";
 
-const HeaderActionSection: React.FC<{ currentDate: string }> = ({
-  currentDate,
+const HeaderActionSection: React.FC<{ todaysDate: string }> = ({
+  todaysDate,
 }) => {
   return (
     <section className="flex items-center justify-between gap-5">
@@ -14,9 +14,9 @@ const HeaderActionSection: React.FC<{ currentDate: string }> = ({
         <img src={arrowImg} alt="Previous date." />
       </Button>
       <Button>
-        <img src={arrowImg} alt="Next date." className="rotate-180"/>
+        <img src={arrowImg} alt="Next date." className="rotate-180" />
       </Button>
-      <p className="">{currentDate}</p>
+      <p className="">{todaysDate}</p>
     </section>
   );
 };

@@ -4,8 +4,8 @@ import Button from "../../UI/Button";
 
 import { uiActions } from "../../../store/slices/ui-slice";
 
-const HeaderMainSection: React.FC<{ currentDate: number }> = ({
-  currentDate,
+const HeaderMainSection: React.FC<{ todaysDate: number }> = ({
+  todaysDate,
 }) => {
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const HeaderMainSection: React.FC<{ currentDate: number }> = ({
       </Button>
       <div className="w-10 rounded-xl bg-[#41B06E] p-1">
         <div className="text-center text-md font-bold text-white">
-          {currentDate}
+          {todaysDate}
         </div>
       </div>
       <span>Calendar</span>

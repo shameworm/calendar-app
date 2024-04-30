@@ -5,7 +5,6 @@ type CalendarViewMonthProps = { daysOfMonth: number[] };
 const CalendarViewMonth: React.FC<CalendarViewMonthProps> = ({
   daysOfMonth,
 }) => {
-  console.log(daysOfMonth);
   return (
     <>
       <thead>
