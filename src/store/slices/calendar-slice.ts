@@ -12,6 +12,7 @@ const getCurrentDate = () => {
 const calendarSlice = createSlice({
   name: "calendar",
   initialState: {
+    todaysDate: getCurrentDate(),
     currentDate: getCurrentDate(),
     calendarView: "Month",
   },
@@ -22,30 +23,88 @@ const calendarSlice = createSlice({
     next: (state) => {
       switch (state.calendarView) {
         case "Month": {
-          state.currentDate.month += 1;
+          let { month, year } = state.currentDate;
+          month += 1;
+          if (month > 12) {
+            month = 1;
+            year += 1;
+          }
+          state.currentDate = { ...state.currentDate, month, year };
           break;
         }
         case "Week": {
-          state.currentDate.day += 7;
+          let { day, month, year } = state.currentDate;
+          day += 7;
+          const daysInMonth = new Date(year, month, 0).getDate();
+          if (day > daysInMonth) {
+            day -= daysInMonth;
+            month += 1;
+            if (month > 12) {
+              month = 1;
+              year += 1;
+            }
+          }
+          state.currentDate = { day, month, year };
           break;
         }
         case "Day": {
-          state.currentDate.day += 1;
+          let { day, month, year } = state.currentDate;
+          day += 1;
+          const daysInMonth = new Date(year, month, 0).getDate();
+          if (day > daysInMonth) {
+            day = 1;
+            month += 1;
+            if (month > 12) {
+              month = 1;
+              year += 1;
+            }
+          }
+          state.currentDate = { day, month, year };
+          break;
         }
       }
     },
     prev: (state) => {
       switch (state.calendarView) {
         case "Month": {
-          state.currentDate.month -= 1;
+          let { month, year } = state.currentDate;
+          month -= 1;
+          if (month < 1) {
+            month = 12;
+            year -= 1;
+          }
+          state.currentDate = { ...state.currentDate, month, year };
           break;
         }
         case "Week": {
-          state.currentDate.day -= 7;
+          let { day, month, year } = state.currentDate;
+          day -= 7;
+          if (day < 1) {
+            const prevMonthDays = new Date(year, month - 1, 0).getDate();
+            day += prevMonthDays;
+            month -= 1;
+            if (month < 1) {
+              month = 12;
+              year -= 1;
+            }
+          }
+          state.currentDate = { day, month, year };
           break;
         }
         case "Day": {
-          state.currentDate.day -= 1;
+          let { day, month, year } = state.currentDate;
+          day -= 1;
+          if (day < 1) {
+            month -= 1;
+            if (month < 1) {
+              month = 12;
+              year -= 1;
+            }
+            const daysInPrevMonth = new Date(year, month, 0).getDate();
+            day = daysInPrevMonth;
+          }
+          state.currentDate = { day, month, year };
+          break;
         }
       }
     },

@@ -13,13 +13,13 @@ const Layout: React.FC = () => {
     (state: RootState) => state.ui.sidebarIsActive
   );
 
-  const { currentDate, calendarView } = useSelector(
+  const { currentDate, calendarView, todaysDate } = useSelector(
     (state: RootState) => state.calendar
   );
 
   return (
     <Fragment>
-      <Header currentDate={currentDate} />
+      <Header todaysDate={todaysDate} currentDate={currentDate}/>
       <main className={`${!sidebarIsActive ? "" : "flex"}`}>
         {sidebarIsActive && <Sidebar />}
         <section className="mx-auto">

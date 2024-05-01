@@ -1,14 +1,16 @@
+import { days } from "../../models/days.model";
 import HeaderActionSection from "./HeaderSections/HeaderActionSection";
 import HeaderMainSection from "./HeaderSections/HeaderMainSection";
 import HeaderSupportSection from "./HeaderSections/HeaderSupportSection";
 
 type headerProps = {
-  currentDate: { day: number; month: number; year: number };
+  currentDate: days;
+  todaysDate: days;
 };
-const Header: React.FC<headerProps> = ({ currentDate }) => {
+const Header: React.FC<headerProps> = ({ currentDate, todaysDate }) => {
   const formattedDate = new Date(
-    currentDate.year,
-    currentDate.month - 1
+    currentDate.year!,
+    currentDate.month! - 1
   ).toLocaleDateString("en-US", {
     month: "long",
     year: "numeric",
@@ -17,7 +19,7 @@ const Header: React.FC<headerProps> = ({ currentDate }) => {
   return (
     <header className="container flex items-center justify-between pb-2 m-5 border-b-2">
       <div className="flex items-center justify-center gap-12">
-        <HeaderMainSection currentDate={currentDate.day} />
+        <HeaderMainSection currentDate={todaysDate.day} />
         <HeaderActionSection currentDate={formattedDate} />
       </div>
       <HeaderSupportSection />
