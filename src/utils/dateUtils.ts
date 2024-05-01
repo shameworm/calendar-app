@@ -40,13 +40,27 @@ export function getDaysOfMonth(month: number, year: number) {
     daysOfMonth.push({ day: i, month: month + 1, year });
   }
 
-
   return daysOfMonth;
 }
 
 export function getDaysOfWeek(day: number, month: number, year: number) {
-  const days = getDaysOfMonth(month, year);
-  return days.slice(day, day + 7);
+  const date = new Date(year, month - 1, day);
+  const dayOfWeek = date.getDay();
+  const daysOfWeek: days[] = [];
+
+  const firstDayOfWeek = new Date(year, month - 1, day - dayOfWeek);
+
+  for (let i = 0; i < 7; i++) {
+    const currentDate = new Date(firstDayOfWeek);
+    currentDate.setDate(firstDayOfWeek.getDate() + i);
+    daysOfWeek.push({
+      day: currentDate.getDate(),
+      month: currentDate.getMonth() + 1,
+      year: currentDate.getFullYear(),
+    });
+  }
+
+  return daysOfWeek;
 }
 
 export function getDaysOfYear(year: number): days[] {

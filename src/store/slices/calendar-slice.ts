@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const getCurrentDate = () => {
   const currentDate = new Date();
@@ -108,6 +108,9 @@ const calendarSlice = createSlice({
         }
       }
     },
+    setCalendarView(state, action: PayloadAction<string>) {
+      state.calendarView = action.payload;
+    }
   },
 });
 

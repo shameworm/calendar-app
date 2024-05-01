@@ -3,5 +3,5 @@ export interface days {
   month: number;
   year: number;
   isCurrentMonth?: boolean;
-  currentDay?: boolean;
+  currentDay?: boolean
 }
