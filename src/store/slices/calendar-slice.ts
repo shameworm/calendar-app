@@ -110,7 +110,7 @@ const calendarSlice = createSlice({
     },
     setCalendarView(state, action: PayloadAction<string>) {
       state.calendarView = action.payload;
-    }
+    },
   },
 });
 

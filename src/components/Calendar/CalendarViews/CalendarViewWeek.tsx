@@ -1,8 +1,8 @@
 import { days } from "../../../models/days.model";
 import CalendarDays from "../../UI/CalendarUI/CalendarDays";
 
-type CalendarViewMonthProps = { days: days[] };
-const CalendarViewWeek: React.FC<CalendarViewMonthProps> = ({ days }) => {
+type CalendarViewWeekProps = { days: days[] };
+const CalendarViewWeek: React.FC<CalendarViewWeekProps> = ({ days }) => {
   return (
     <>
       <thead>

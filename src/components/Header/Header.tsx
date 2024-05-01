@@ -10,8 +10,10 @@ type headerProps = {
 const Header: React.FC<headerProps> = ({ currentDate, todaysDate }) => {
   const formattedDate = new Date(
     currentDate.year!,
-    currentDate.month! - 1
+    currentDate.month! - 1,
+    currentDate.day
   ).toLocaleDateString("en-US", {
+    day: "2-digit",
     month: "long",
     year: "numeric",
   });

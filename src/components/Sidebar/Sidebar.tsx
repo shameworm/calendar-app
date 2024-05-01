@@ -11,6 +11,10 @@ const Sidebar: React.FC = () => {
           <span className="text-md">Create Appointment</span>
         </Button>
       </section>
+      {/* TODO: Write the small calendar widget
+      <section>
+        <CalendarViewMonth />
+      </section> */}
     </aside>
   );
 };
