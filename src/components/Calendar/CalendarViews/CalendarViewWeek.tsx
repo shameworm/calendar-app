@@ -6,7 +6,7 @@ const CalendarViewWeek: React.FC<CalendarViewWeekProps> = ({ days }) => {
   return (
     <>
       <thead>
-        <CalendarDays styles="table-head" />
+        <CalendarDays styles="table-head-default" />
       </thead>
       <tbody>
         <tr className="text-center">

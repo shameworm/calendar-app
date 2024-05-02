@@ -3,20 +3,20 @@ import HeaderActionSection from "./HeaderSections/HeaderActionSection";
 import HeaderMainSection from "./HeaderSections/HeaderMainSection";
 import HeaderSupportSection from "./HeaderSections/HeaderSupportSection";
 
+import { formatDate } from "../../utils/dateUtils";
+
 type headerProps = {
   currentDate: days;
   todaysDate: days;
+  view: string;
 };
-const Header: React.FC<headerProps> = ({ currentDate, todaysDate }) => {
-  const formattedDate = new Date(
-    currentDate.year!,
-    currentDate.month! - 1,
-    currentDate.day
-  ).toLocaleDateString("en-US", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+const Header: React.FC<headerProps> = ({ currentDate, todaysDate, view }) => {
+  const formattedDate = formatDate(
+    currentDate.day,
+    currentDate.month,
+    currentDate.year,
+    view
+  );
 
   return (
     <header className="container flex items-center justify-between pb-2 m-5 border-b-2">

@@ -1,8 +1,11 @@
 import { days } from "../../../models/days.model";
 import CalendarDays from "../../UI/CalendarUI/CalendarDays";
 
-type CalendarViewMonthProps = { days: days[] };
-const CalendarViewMonth: React.FC<CalendarViewMonthProps> = ({ days }) => {
+type CalendarViewMonthProps = { days: days[]; styles: string };
+const CalendarViewMonth: React.FC<CalendarViewMonthProps> = ({
+  days,
+  styles,
+}) => {
   const weeks = [];
   for (let i = 0; i < days.length; i += 7) {
     weeks.push(days.slice(i, i + 7));
@@ -11,7 +14,7 @@ const CalendarViewMonth: React.FC<CalendarViewMonthProps> = ({ days }) => {
   return (
     <>
       <thead>
-        <CalendarDays styles="table-head" />
+        <CalendarDays styles={styles} />
       </thead>
       <tbody>
         {weeks.map((week, weekIndex) => (

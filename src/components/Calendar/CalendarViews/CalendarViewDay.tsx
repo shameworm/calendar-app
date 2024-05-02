@@ -11,10 +11,20 @@ const CalendarViewDay: React.FC<CalendarViewDayProps> = ({ days }) => {
 
   return (
     <>
-      <div className="text-center bg-[#41B06E] rounded-t-full text-white">
-        {formatDate(new Date(days[0].year, days[0].month - 1, days[0].day))}
-      </div>
-      <div className="rounded-t-none rounded-2xl text-center text-3xl border p-96 w-full overflow-auto hover:bg-gray-300 transition cursor-pointer duration-500 ease"></div>
+      <thead className="table-head-day">
+        <tr>
+          <th>
+            {formatDate(new Date(days[0].year, days[0].month - 1, days[0].day))}
+          </th>
+        </tr>
+      </thead>
+      <tbody id="table-body-day-content">
+        <tr>
+          <th>
+            <div className="day-content"></div>
+          </th>
+        </tr>
+      </tbody>
     </>
   );
 };

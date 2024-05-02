@@ -15,10 +15,22 @@ body {
   color: white;
 }
 
-.table-head {
+.table-head-default {
   @apply p-2 border-2 h-10  w-32 text-sm;
 }
 
-.table-head span {
+.table-head-default span {
   @apply block;
+}
+
+.table-head-day {
+  @apply text-center bg-[#41B06E] text-gray-100;
+}
+
+#table-body-day-content .day-content {
+  @apply bg-gray-200 rounded-t-none rounded-2xl text-center text-3xl border p-96 w-full cursor-pointer;
+}
+
+.table-head-year {
+  @apply text-base font-medium text-center text-gray-800 dark:text-gray-100;
 }

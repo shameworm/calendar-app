@@ -14,7 +14,7 @@ const calendarSlice = createSlice({
   initialState: {
     todaysDate: getCurrentDate(),
     currentDate: getCurrentDate(),
-    calendarView: "Month",
+    calendarView: "Year",
   },
   reducers: {
     getCurrentDate: (state) => {
@@ -62,6 +62,12 @@ const calendarSlice = createSlice({
           state.currentDate = { day, month, year };
           break;
         }
+        case "Year": {
+          let { year } = state.currentDate;
+          year += 1;
+          state.currentDate = { ...state.currentDate, year };
+          break;
+        }
       }
     },
     prev: (state) => {
@@ -104,6 +110,12 @@ const calendarSlice = createSlice({
             day = daysInPrevMonth;
           }
           state.currentDate = { day, month, year };
+          break;
+        }
+        case "Year": {
+          let { year } = state.currentDate;
+          year -= 1;
+          state.currentDate = { ...state.currentDate, year };
           break;
         }
       }
